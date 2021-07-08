@@ -4,6 +4,9 @@ import './SortingVisualizer.css';
 
 const PRIMARY_COLOR = 'turquoise';
 
+const NUMBER_OF_ARRAY_BARS = 100;
+
+
 export default class SortingVisualizer extends React.Component {
     constructor(props){
         super(props);
@@ -13,16 +16,36 @@ export default class SortingVisualizer extends React.Component {
         };
     }
 
+
+    
+   
     componentDidMount(){
         this.resetArray();
     }
 
     resetArray() {
         const array = [];
-        for (let i=0; i <100; i++) {
+        for (let i=0; i < NUMBER_OF_ARRAY_BARS; i++) {
             array.push(randomIntFromInterval(5,650));
         }
         this.setState({array});
+    }
+
+    MergeSort() {
+
+    }
+
+    QuickSort() {
+
+    }
+
+    HeapSort() {
+
+    }
+
+    BubbleSort() {
+
+    
     }
 
     render() {
@@ -39,6 +62,12 @@ export default class SortingVisualizer extends React.Component {
                 height: `${value}px`,}}>
             </div>
         ))}
+        <br></br>
+        <button onClick={() => this.resetArray()}>Generate new Array</button>
+        <button onClick={() => this.MergeSort()}>Merge Sort</button>
+        <button onClick={() => this.QuickSort()}>Quick Sort</button>
+        <button onClick={() => this.HeapSort()}>Heap Sort</button>
+        <button onClick={() => this.BubbleSort()}>Bubble Sort</button>
         </div>
         );
 
@@ -46,6 +75,11 @@ export default class SortingVisualizer extends React.Component {
 
 
 }
+
+
+
+
+
 
 function randomIntFromInterval(min,max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
